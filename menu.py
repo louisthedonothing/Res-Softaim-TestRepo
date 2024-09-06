@@ -18,14 +18,10 @@ def create_model_selector(parent, row, column, engine_files, default_model):
     model_selector.grid(row=row, column=column + 1, pady=(10, 0), padx=(10, 10), sticky="w")
     return model_selector
 
-def detect_xbox_input():
-    while True:
-        events = get_gamepad()
-
 
 def create_keybind_selector(parent, row, column, keys, activationKey):
     customtkinter.CTkLabel(parent, text="Select Activation Key").grid(row=row, column=column, pady=(10, 0), padx=(10, 0), sticky="w")
-    keybind_selector = customtkinter.CTkComboBox(parent, values=keys or CKEYS)
+    keybind_selector = customtkinter.CTkComboBox(parent, values=KKEYS or CKEYS)
     keybind_selector.set(activationKey)
     keybind_selector.grid(row=row, column=column + 1, pady=(10, 0), padx=(10, 10), sticky="w")
     return keybind_selector
@@ -42,7 +38,7 @@ def set_switch(switch, value):
             else:
                 switch.deselect()
 
-keys=[
+KKEYS=[
     "VK_LBUTTON",
     "VK_RBUTTON",
     "VK_CANCEL",
